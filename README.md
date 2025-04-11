@@ -3,7 +3,6 @@
 ### How to set up
 
 - docker compose up -d --build
-- run `composer install` 
 - Navigate to http://localhost:8080
 
 
