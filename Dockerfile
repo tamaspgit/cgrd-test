@@ -18,8 +18,6 @@ COPY . /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html
 
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
-
 EXPOSE 80
 
 CMD ["apache2-foreground"]
