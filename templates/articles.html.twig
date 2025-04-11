@@ -1,0 +1,65 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Articles{% endblock %}
+
+{% block content %}
+
+    <section name="articles">
+        <h2 class="text-align-left">All News</h2>
+
+        <div>  
+            {% for article in articles %}
+                <div class="article-item">
+                    <div class="article-content">
+                        <p>
+                            <span class="strong">{{ article.title }}</span>
+                            {{ article.content }}
+                        </p>
+                    </div>
+                    <div class="button-group">
+                        <a href="/article/edit/{{ article.id }}" title="Edit">
+                            <img src="/images/pencil.svg" alt="Edit" class="icon-button">
+                        </a>
+                        <a href="/article/delete/{{ article.id }}" title="Delete">
+                            <img src="/images/close.svg" alt="Edit" class="icon-button">
+                        </a>
+                    </div>   
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <h2> {{ articleAction }} </h2>
+
+    <form id="articleForm" action="{{ formAction }}{{ article.id}}" method="POST">
+        {% if error %}
+            <div class="error" id="responseMessage">{{ error }}</div>
+        {% endif %}
+
+        <div>
+            <input type="text" id="title" name="title" placeholder="Title"
+                value="{{ article.title|e }}" required />
+            {% if errors.title %}
+                <div class="field-error">{{ errors.title[0] }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <textarea id="content" name="content" placeholder="Description" required>{{ article.content|e }}</textarea>
+            {% if errors.content %}
+                <div class="field-error">{{ errors.content[0] }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <button type="submit">{{ submitButtonText }}</button>
+        </div>
+    </form>
+
+    <form id="logoutForm" action="/logout" method="POST">
+         <div>
+            <button type="submit">Logout</button>
+        </div>
+    </form>
+
+{% endblock %}

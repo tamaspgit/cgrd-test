@@ -1,0 +1,18 @@
+{
+    "name": "ptamas/cgrd",
+    "description": "Test task for CGRD",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "CGRD\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Patocs Tamas"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}

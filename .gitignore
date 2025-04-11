@@ -1,0 +1,5 @@
+# Vendor Folder
+vendor/
+
+# Composer
+composer.lock
