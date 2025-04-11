@@ -3,6 +3,7 @@
 ### How to set up
 
 - docker compose up -d --build
+- docker exec -it php_app composer install
 - Navigate to http://localhost:8080
 
 
